@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'ChangeNotifier/counter_viewmodel.dart';
-import 'ChangeNotifier/counter_change_notifier_view.dart';
+import 'package:test_provider/change_notifier_sample/counter_change_notifier_view.dart';
+import 'package:test_provider/change_notifier_sample/counter_viewmodel.dart';
 
 void main() {
   runApp(MyApp());

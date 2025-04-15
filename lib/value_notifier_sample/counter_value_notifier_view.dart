@@ -17,7 +17,7 @@ class CounterValueNotifierView extends StatelessWidget {
             const Text('Counter Value', style: TextStyle(fontSize: 20)),
             const SizedBox(height: 10),
 
-            // ValueListenableBuilder変更を検知し、UIに反映
+            // ValueListenableBuilderが変更を検知し、UIに反映
             ValueListenableBuilder<int>(
               valueListenable: counter,
               builder: (context, value, _) {
