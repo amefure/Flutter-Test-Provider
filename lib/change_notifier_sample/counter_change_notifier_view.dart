@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../viewmodels/counter_viewmodel.dart';
+import 'counter_viewmodel.dart';
 
-class CounterView extends StatelessWidget {
+class CounterChangeNotifierView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Counter with Provider')),
+      appBar: AppBar(title: const Text('Counter with Provider')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Counter Value:', style: TextStyle(fontSize: 20)),
-            SizedBox(height: 10),
+            const Text('Counter Value', style: TextStyle(fontSize: 20)),
+            const SizedBox(height: 10),
 
             // Consumer を使って ViewModel の値を UI に反映
             Consumer<CounterViewModel>(
@@ -24,20 +24,21 @@ class CounterView extends StatelessWidget {
               },
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
-            // インクリメント / デクリメントボタン
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                // デクリメントボタン
                 FloatingActionButton(
                   onPressed: () => context.read<CounterViewModel>().decrement(),
-                  child: Icon(Icons.remove),
+                  child: const Icon(Icons.remove),
                 ),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
+                // インクリメントボタン
                 FloatingActionButton(
                   onPressed: () => context.read<CounterViewModel>().increment(),
-                  child: Icon(Icons.add),
+                  child: const Icon(Icons.add),
                 ),
               ],
             ),

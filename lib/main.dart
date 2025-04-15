@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import './viewmodels/counter_viewmodel.dart';
-import './views/counter_view.dart';
+import 'ChangeNotifier/counter_viewmodel.dart';
+import 'ChangeNotifier/counter_change_notifier_view.dart';
 
 void main() {
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => CounterViewModel()),
-      ],
-      child: MyApp(),
-    ),
-  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -20,7 +13,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Provider Example',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: CounterView(),
+      // ValueNotifier(デフォルト)
+      // home: CounterValueNotifierView(),
+      // ChangeNotifier(Provider)
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => CounterViewModel()),
+        ],
+        child: CounterChangeNotifierView(),
+      ),
     );
   }
 }
